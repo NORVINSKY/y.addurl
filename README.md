@@ -31,10 +31,10 @@
 
 ```bash
 # Основная обработка очереди (каждую минуту)
-* * * * * /usr/bin/php /абсолютный/путь/до/сайта/index.php cron=queue >> /путь/до/cron.log 2>&1
+* * * * * /usr/bin/php /абсолютный/путь/до/сайта/index.php cron=queue 2>&1 | awk '{print}' >> /путь/до/cron.log 2>&1
 
 # Обновление кэша Public Suffix List (например, 1 раз в месяц)
-0 0 1 * * /usr/bin/php /абсолютный/путь/до/сайта/index.php cron=update_psl >> /путь/до/psl.log 2>&1
+0 0 1 * * /usr/bin/php /абсолютный/путь/до/сайта/index.php cron=update_psl 2>&1 | awk '{print}' >> /путь/до/psl.log 2>&1
 ```
 *(Замените `/usr/bin/php` и пути на актуальные для вашего сервера).*
 
